@@ -9,6 +9,7 @@ if you dont have go-ipfs client installed then run
 ```./OpenNotes setup```
 ### windows
 ```OpenNotes.exe setup```
+
 Once the setup is done you can run without any args
 
 Note: if you already have ifps installed no need to run the setup
