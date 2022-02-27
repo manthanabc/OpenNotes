@@ -1,0 +1,156 @@
+<html>
+<head>
+	<title>OpenNotes</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/vue@next"> </script> 
+
+</head>
+<body>
+
+<!--
+<h1 class="title is_centered ">Title</h1>
+
+<div class="tile is-ancestor">
+  <div class="tile">
+    <div class="tile is-child box">
+      <p class="title">Two</p>
+    </div>
+  </div>
+  <div class="tile">
+    <div class="tile is-child box">
+      <p class="title">Three</p>
+    </div>
+  </div>
+</div> -->
+
+  <div id="app">
+    
+<nav class="nav has-shadow">
+   <label for="menu-toggle" class="nav-toggle">
+    <span></span>
+    <span></span>
+    <div class="container">
+    <div class="nav-left">
+    </div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <input type="checkbox" id="menu-toggle" class="is-hidden"/>
+    <section class="hero is-midium">
+    <div class="nav-right nav-menu has-background-primary mb-6">
+      <a class="nav-item is-centered">
+	<h1 class="title is-3 has-text-centered">OpenNotes<h1>
+	<!--
+      </a>
+      <a class="nav-item is-tab is-hidden-tablet">
+        <span class="icon"><i class="fa fa-home"></i></span> Pinned
+      </a>
+      <a class="nav-item is-tab is-hidden-tablet">
+        <span class="icon"><i class="fa fa-New"></i></span> New
+      </a>
+      <a class="nav-item is-tab is-hidden-tablet">
+        <span class="icon"><i class="fa fa-info"></i></span> Explore
+      </a> -->
+    </div>
+  </div>
+  </section>
+</nav>
+
+<section class="main-content columns is-fullheight">
+  
+  <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+    <p class="menu-label is-hidden-touch">Navigation</p>
+    <ul class="menu-list">
+      <li>
+        <a href="#" class="">
+          <span class="icon"><i class="fa fa-home"></i></span> Pins
+        </a>
+      </li>
+       <li>
+        <a href="#" class="has-background-primary">
+          <span class="icon"><i class="fa fa-home"></i></span> New
+        </a>
+      </li>
+      <li>
+        <a href="#" class="">
+          <span class="icon"><i class="fa fa-info"></i></span> Explore
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+  <!--title-->
+
+  <div class="tile is-ancestor" id="cards">
+  <div class="tile is-vertical is-8">
+  <div class="tile is-vertical">
+  <div v-for="file in state.files" class="tile is-parent">
+  <div class="tile is-child">
+  
+ <!--card-->
+ <div class="card" onclick="window.open('http://google.com', '_blank');">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content" id="cards">
+		  <p class="title">{{ file.name }}</p>
+          </div>
+        </div>
+
+	<div class="content"> {{ file.name }} <a>@{{file.category}}</a>.
+      <a href="#">#openNotes</a>
+      <br>
+      <time datetime="2016-1-1">{{ file.type }}</time>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+<!--cardover-->
+
+  <!--
+  <div class="container column is-10">
+    <div class="section">
+
+      <div class="card">
+        <div class="card-header"><p class="card-header-title">Header</p></div>
+        <div class="card-content"><div class="content">Content</div></div>
+      </div>
+      <br />
+      
+      <div class="card is-hidden1">
+        <div class="card-header"><p class="card-header-title">Header</p></div>
+        <div class="card-content"><div class="content">Content</div></div>
+      </div>
+      <br />
+      
+      <div class="card is-hidden1">
+        <div class="card-header"><p class="card-header-title">Header</p></div>
+        <div class="card-content"><div class="content">Content</div></div>
+      </div>
+      <br />
+      
+    </div>
+  </div>
+  -->
+  
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Some footer tetx here</p>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+ 
+ </div>
+</body>
+</html>
