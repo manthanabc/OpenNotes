@@ -4,6 +4,7 @@ var vm = Vue.createApp({
     return {
     a: 1,
     b: [1,2,3,4],
+    selected_category: '',
     state: {
 	    files: [
 {name: "Electromagnatism", type: "text" , link: "", category: "physcis"},
@@ -25,7 +26,26 @@ var vm = Vue.createApp({
     b: function () {
       // `this` points to the vm instance
       return this.a + 1
-    }
+    },
+  },
+  methods: {
+	open_window: function(e) {
+		window.open("ipfs://ipfs/"+e);
+        },
+	make_primary: function(e) {
+		if (e.srcElement.id == 'New') {
+		 document.getElementById('Pins').className = '';
+		 document.getElementById('Explore').className='';
+		}else if (e.srcElement.id == "Pins") {
+		 document.getElementById('New').className = '';
+		 document.getElementById('Explore').className = '';
+		} else {
+		 document.getElementById('Pins').className = '';
+		 document.getElementById('New').className='';
+		}
+		e.srcElement.className="has-background-primary";
+		selected_category = e.srcElement.id;
+	}
   },
   async mounted() {
      console.log("called")
@@ -38,4 +58,4 @@ var vm = Vue.createApp({
      //this.series=b.series
     }
 }
-).mount("#cards")
+).mount("#app")

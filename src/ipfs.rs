@@ -16,23 +16,30 @@ async fn add_file() -> Result<String, Box<dyn std::error::Error>> {
 
 
 pub fn start_daemon() {
-    commands::run("ipfs swarm peers", "cmd").unwrap();
     /*    Command::new("ipfs swarm peers")
         .arg("daemon")
         .output()
         .expect("failed to execute process");
     **/
 
-    commands::run("ipfs daemon", "cmd").unwrap();
+    if true {
+    //let Ok(_) = commands::run("ipfs daemon", "cmd") {
+    commands::run("ipfs daemon");
+    } else {
+        println!("failed to start daemon assuming its already ruiing");
+    }
+
+    commands::run("ipfs swarm peers").unwrap();
     /*    Command::new("ipfs")
         .args(&args)
         .spawn()
         .expect("failed to execute process");
     **/
+       // println!("{}", error);   
     //TODO: add a try catch and print failed to satrt ipfs make sure its installed
 }
     
-pub fn add_bootstarp_peers() {
+pub fn add_bootstrap_peers() {
     Command::new("ipfs")
         .args(&["swarm", "connect", "/ip4/149.56.89.144/tcp/4001/p2p/12D3KooWDiybBBYDvEEJQmNEp1yJeTgVr6mMgxqDrm9Gi8AKeNww"])
         .spawn()
@@ -41,6 +48,14 @@ pub fn add_bootstarp_peers() {
 
 pub fn upload_file(file_path: &str) {
 
+}
+
+pub async fn get_pins() -> String {
+    let client = reqwest::Client::new();
+    let mut response = client.get("http://localhost:5001/api/v0/pin/ls").send().await.unwrap();
+    let mut body = String::new();
+    let body = response.text().await.unwrap();
+    return body;
 }
 
 pub async fn get_data() -> String {

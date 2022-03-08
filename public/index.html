@@ -65,18 +65,18 @@
     <p class="menu-label is-hidden-touch">Navigation</p>
     <ul class="menu-list">
       <li>
-        <a href="#" class="">
+        <a id='Pins' @click="make_primary">
           <span class="icon"><i class="fa fa-home"></i></span> Pins
         </a>
       </li>
        <li>
-        <a href="#" class="has-background-primary">
+        <a id='New' @click="make_primary">
           <span class="icon"><i class="fa fa-home"></i></span> New
         </a>
       </li>
       <li>
-        <a href="#" class="">
-          <span class="icon"><i class="fa fa-info"></i></span> Explore
+        <a id='Explore' @click="make_primary">
+          <span class="icon"><i class="fa fa-home"></i></span> Explore
         </a>
       </li>
     </ul>
@@ -95,7 +95,7 @@
   <div class="tile is-child">
   
  <!--card-->
- <div class="card" onclick="window.open('http://google.com', '_blank');">
+ <div class="card" v-on:click="open_window(file.link)">
       <div class="card-content">
         <div class="media">
           <div class="media-content" id="cards">

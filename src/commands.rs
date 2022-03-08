@@ -1,13 +1,13 @@
 use std::process::Command;
 
-pub fn run(name: &str, program: &str) -> Result<(), Box<dyn std::error::Error>> {
+pub fn run(name: &str) -> Result<(), Box<dyn std::error::Error>> {
     let output = if cfg!(target_os = "windows") {
-        Command::new("cmd").arg(name).output()?
+        Command::new("cmd").arg(name).spawn()
     } else {
-        Command::new("sh").arg("-c").arg(name).output()?
+        Command::new("sh").arg("-c").arg(name).spawn()
     };
 
-    if output.status.success() {
+    if !output.is_err() {
         return Ok(());
     } else {
        return Err(Box::new(std::io::Error::new(
